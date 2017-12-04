@@ -1,15 +1,19 @@
 class SettingsCtrl {
-  constructor(User, $state) {
+  constructor(User, FavoriteTags,  $state) {
     'ngInject';
 
     this._User = User;
     this._$state = $state;
+    this._FavoriteTags = FavoriteTags;
+    this.formFavoriteTagsArray = [];
+    this.formFavoriteTag =  '';
 
     this.formData = {
       email: User.current.email,
       bio: User.current.bio,
       image: User.current.image,
-      username: User.current.username
+      username: User.current.username,
+      favoriteTags: User.current.favoriteTags || []
     }
 
     this.logout = User.logout.bind(User);
@@ -18,6 +22,7 @@ class SettingsCtrl {
 
   submitForm() {
     this.isSubmitting = true;
+    console.log(this.formData)
     this._User.update(this.formData).then(
       (user) => {
         this._$state.go('app.profile.main', {username:user.username})
@@ -27,6 +32,10 @@ class SettingsCtrl {
         this.errors = err.data.errors;
       }
     )
+  }
+
+  addFavorite() {
+    this.formData.favoriteTags.push(this.formFavoriteTag)
   }
 
 }

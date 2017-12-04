@@ -22,5 +22,7 @@ servicesModule.service('Comments', CommentsService);
 import TagsService from './tags.service';
 servicesModule.service('Tags', TagsService);
 
+import FavoriteTagsService from './favoriteTags.sevrice';
+servicesModule.service('FavoriteTags', FavoriteTagsService);
 
 export default servicesModule;
