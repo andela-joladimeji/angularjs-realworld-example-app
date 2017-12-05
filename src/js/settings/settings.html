@@ -47,7 +47,7 @@
             </fieldset>
             <fieldset>
               <div class="chip" ng-repeat="favoriteTag in $ctrl.formData.favoriteTags">
-                  <p>{{favoriteTag}}
+                <span>{{favoriteTag.favoriteTag}}</span>
             </div>
           </fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right"
@@ -61,7 +61,7 @@
           <fieldset ng-disabled="$ctrl.isSubmitting"> 
                   <input class="form-control form-control-lg"
                     type="text"
-                    placeholder="Favorite Tag"
+                    placeholder="Add Your Favorite Tags "
                     ng-model="$ctrl.formFavoriteTag" />
             <button class="btn btn-lg btn-primary pull-xs-right"
               type="submit">

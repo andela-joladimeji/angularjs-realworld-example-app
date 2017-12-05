@@ -16,6 +16,11 @@ class SettingsCtrl {
       favoriteTags: User.current.favoriteTags || []
     }
 
+    FavoriteTags.getFavorites().then((res) => {
+      this.formData.favoriteTags = res
+    });
+    
+
     this.logout = User.logout.bind(User);
 
   }
